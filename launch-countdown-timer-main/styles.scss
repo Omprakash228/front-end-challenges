@@ -1,0 +1,227 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: url('./images/bg-stars.svg'), linear-gradient(to bottom, #1e1e28, #241c2b);
+    background-size: cover;
+    font-family: 'Red Hat Text';
+    font-weight: 700;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    height: 75%;
+    width: 100%;
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+}
+
+.description {
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.countdown-ctr {
+    display: flex;
+    gap: 5rem;
+}
+
+.time-unit-ctr {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.unit-description {
+    color: hsl(237, 18%, 59%);
+    font-size: 14px;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+}
+
+.flip-ctr {
+    display: flex;
+    justify-content: center;
+}
+
+.flip-card {
+    box-shadow: 0 9px 0 0 #1a1a24;
+    border-radius: 0.5rem;
+    font-size: 5rem;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    width: 2em;
+}
+
+.top,
+.bottom,
+.top-flip,
+.bottom-flip {
+    line-height: 1;  
+    overflow: hidden;
+    padding: 2rem 1.65rem;
+    letter-spacing: normal;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.top::before,
+.top-flip::before {
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    left: -0.4rem;
+    bottom: -0.4rem;
+    background-color: #1a1a24;
+}
+
+.bottom::before,
+.bottom-flip::before {
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    left: -0.4rem;
+    top: -0.4rem;
+    background-color: #1a1a24;
+}
+
+.top::after,
+.top-flip::after {
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    right: -0.4rem;
+    bottom: -0.4rem;
+    background-color: #1a1a24;
+}
+.bottom::after,
+.bottom-flip::after {
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    right: -0.4rem;
+    top: -0.4rem;
+    background-color: #1a1a24;
+}
+
+.top,
+.top-flip {
+    background: #2c2c44;
+    color: #d54f72;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom: 1px solid #1a1a24;
+}
+
+.bottom,
+.bottom-flip {
+    background: #34364f;
+    color: #fa5e83;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    align-items: flex-end;
+}
+
+.top-flip {
+    position: absolute;
+    width: 100%;
+    animation: flip-top 250ms ease-in;
+    transform-origin: bottom;
+}
+
+@keyframes flip-top {
+    100% {
+        transform: rotateX(90deg);
+    }
+}
+
+.bottom-flip {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    animation: flip-bottom 250ms ease-out 250ms;
+    transform-origin: top;
+    transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+.footer {
+    position:absolute;
+    bottom: 0;
+    background: url('./images/pattern-hills.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 25%;
+    width: 100%;
+}
+
+.cut {
+    height: 0.15em;
+    width: 0.15em;
+    background: #1a1a24;
+    position: absolute;
+    top: 0.8em;
+    border-radius: 50%;
+}
+
+.cut-left {
+    left: -0.075em;
+}
+
+.cut-right {
+    right: -0.075em;
+}
+
+
+.icon-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+$icons: (
+    "fb-icon" : url("./images/icon-facebook.svg"),
+    "pinterest-icon": url("./images/icon-pinterest.svg"),
+    "instagram-icon": url("./images/icon-instagram.svg")
+);
+
+@each $icon, $url in $icons {
+    .#{$icon} {
+        background: $url;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}
