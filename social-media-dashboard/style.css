@@ -200,7 +200,7 @@ body .app-ctr .dashboard-ctr .dashboard-card .count-change {
   font-weight: 600;
 }
 
-.dashboard-card:hover {
+body .app-ctr .dashboard-ctr .dashboard-card:hover {
   background: var(--card-bg-hover);
 }
 
